@@ -163,4 +163,4 @@
 			clientSecret: clientSecret
 		})
 	}
-}
+}(jQuery, Clarifai));

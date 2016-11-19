@@ -34,7 +34,7 @@
 				try {
 					// if we get the response display it
 					displayImage(response)
-					displayTag(response)
+					displayTag(response)									
 				}
 				catch (error) {
 					console.log(error)
@@ -61,7 +61,7 @@
 								<img class="img-responsive" id="pic">
 							</div>
 						</div>`
-			}
+			} 
 		})
 	}
 
@@ -73,7 +73,7 @@
 		console.log("Clarifai Response!")
 		console.log(response)
 
-		/* Getting the first image from the
+		/* Getting the first image from the 
 		 * we can give more than one image at the time of request
 		 * but since we are requesting tags for only one image
 		 * we only need to retrieve the first image*/
@@ -133,11 +133,11 @@
 		}
 	}
 
-	// In case of error displays an error in the Clarifai
+	// In case of error displays an error in the Clarifai 
 	function displayError (error) {
 
 		// Preparing the error message
-		var errorMessage = "<p>" + error.status_msg + "</p>"
+		var errorMessage = "<p>" + error.status_msg + "</p>" 
 		var errorHtml = "<div class='errorBox'><h1>Error ❌</h1>" + errorMessage + "</div>"
 
 		// throwing the errorHtml in .tags
@@ -163,4 +163,4 @@
 			clientSecret: clientSecret
 		})
 	}
-}
+}(jQuery, Clarifai));

@@ -2,7 +2,7 @@
   "name": "clarifai-beginner-javascript",
   "version": "1.0.0",
   "description": "A beginner Clarifai demo for javascript users",
-  "main": "index.js",
+  "main": "background.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
