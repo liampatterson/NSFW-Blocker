@@ -4,14 +4,15 @@
  */
 
 
+ var imgsrc = document.images.item(0);
+ console.log(imgsrc);
+
 
 (function ($, Clarifai) {
 	$(document).ready(function () {
 		initialize()
 	})
 
-	var imgsrc = document.images.item(0);
-	console.log(imgsrc);
 
 
 
