@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "NSFWBlock",
+  "version": "1",
+  "description": "Blocks NSFW content in webpages",
+  "icons": { "128": "icon.png" },
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "permissions": ["background"],
+  "browser_action": {
+    "default_title": "not",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
