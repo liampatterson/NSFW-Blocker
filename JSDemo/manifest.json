@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Clarifai NSFW Filter",
+  "description": "This extension replaces NSFW images with pictures of cats",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+//    "default_popup": "popup.html"
+  },
+  "icons": {
+    "64": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts/myScript.js"]
+    }
+  ]
+}
