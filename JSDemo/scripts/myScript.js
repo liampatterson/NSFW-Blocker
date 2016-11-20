@@ -2,27 +2,30 @@
     var Clarifai = require('clarifai');
 
     var app = new Clarifai.App(
-        "l1xkXUgXZTO466yByA-fDV4E0dQ1SRsbszkbzx7r",
-        "JCmCrkkywimbx4Agwc-2DfuCsj5bebn8PEKpvUKS"
+        "t8KMr5CfjkYWbX_7Kpa0w9G8wvhxu0JyV0wgzRXE",
+        "Ob-m3Rt-ttrIfXMqwXBdu09QOjBsbm5ufbLEOFuP"
     );
     var list = document.getElementsByTagName("img");
-    var catPicture = "https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg";
-    var dogPicture = "http://r.ddmcdn.com/s_f/o_1/cx_633/cy_0/cw_1725/ch_1725/w_720/APL/uploads/2014/11/too-cute-doggone-it-video-playlist.jpg"
+    var catPicture = "http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg";
+    var dogPicture = "https://www.rover.com/blog/wp-content/uploads/2015/05/dog-candy-junk-food-599x340.jpg";
     var i = 0;
     function labelImage() {
         setTimeout(function() {
-            app.models.predict(Clarifai.NSFW_MODEL, list[i].src).then(
+            app.models.predict("d38d8e1d7fac466a910ad729108de059", list[i].src).then(
                 function(response) {
-                    var sfw;
 
                     var firstValue = response.data.outputs[0].data.concepts[0];
 
-                    if(firstValue.name == 'sfw' && firstValue.value > .8){
-                        list[i].src = dogPicture;
-                        console.log("Safe for work.");
-                    } else {
-                        list[i].src = catPicture;
+                    if(firstValue.name == 'nsfw' && firstValue.value > 0.7){
+                        list[i].src = "https://files.graphiq.com/2307/media/images/White_430113_i0.png";
                         console.log("NSFW content not displayed.");
+                        console.log(firstValue.value);
+                        console.log(firstValue.name);
+                    } else if (firstValue.name == 'sfw' && firstValue.value > 0.8){
+                        list[i].src = catPicture;
+                        console.log("Safe for work.");
+                        console.log(firstValue.value);
+                        console.log(firstValue.name);
                     }
                 },
                 function(err) {
@@ -33,7 +36,7 @@
             if(i < list.length){
                 labelImage();
             }
-        }, 150)
+        }, 110)
     }
     labelImage();
 },{"clarifai":29}],2:[function(require,module,exports){
